@@ -1,0 +1,96 @@
+.App {
+  text-align: center;
+  margin-top: 20px;
+  text-align: center;
+  background-color: rgb(62 11 11 / 50%);
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+   /* position: relative; */
+  z-index: 2; 
+}
+
+input {
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+}
+
+button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.weather-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-top: 20px;
+  display: inline-block;
+  text-align: left;
+  min-width: 280px;
+  max-width: 500px;
+}
+
+.error {
+  color: red;
+}
+
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-image: url("D:\Weather App\perfect_weather\src\images\weather green faded.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+input {
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 13px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.error {
+  color: red;
+}
+
+button.disabled{
+    pointer-events: none;
+    opacity: .5;
+}
