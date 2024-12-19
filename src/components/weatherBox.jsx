@@ -1,6 +1,4 @@
 const weatherBox = (props) => {
-    console.log(props);
-    
   const { country, city, weather, temperature, feels_like } = props.props;
   return (
     <div className="weather-card">
