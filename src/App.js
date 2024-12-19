@@ -1,4 +1,3 @@
-// import "./App.css";
 import "./css/weatherBox.css";
 import Container from "./components/container";
 import WeatherBox from "./components/weatherBox";
@@ -8,7 +7,7 @@ function App() {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
   const [weatherMsg, setWeatherMsg] = useState("");
-  const [flag, setFlag] = useState(false);
+  const [weatherContainerflag, setWeatherContainerFlag] = useState(false);
   const [btnFlag, setBtnFlag] = useState(true);
 
   const weatherApiHandler = async () => {
@@ -16,29 +15,26 @@ function App() {
       `http://api.weatherapi.com/v1/current.json?key=9ed77cf4d4844e02be583806241812&q=${city}&aqi=no`
     );
     const res = await fetchApi.json();
-    console.log("res", res);
     // if (res.length > 0) {
     setWeatherData({
-      country: res.location.country,
-      city: res.location.name,
-      weather: res.current.condition.text,
-      temperature: res.current.temp_c,
-      feels_like: res.current.feelslike_c,
+      country: res?.location?.country && "",
+      city: res?.location?.name && "",
+      weather: res?.current?.condition?.text && "",
+      temperature: res?.current?.temp_c && "",
+      feels_like: res?.current?.feelslike_c && "",
     });
-    setFlag(true);
-    if (res.current.temp_c >= 20 && res.current.temp_c <= 30) {
+    setWeatherContainerFlag(true);
+    if (res?.current?.temp_c && "" >= 20 && res?.current?.temp_c && "" <= 30) {
       setWeatherMsg("Perfect weather for a family vacation!");
-    } else if (res.current.temp_c > 30) {
+    } else if (res?.current?.temp_c && "" > 30) {
       setWeatherMsg("It's hot, stay cool!");
-    } else if (res.current.temp_c < 0) {
+    } else if (res?.current?.temp_c && "" < 0) {
       setWeatherMsg("It's freezing, pack warm clothes!");
     } else {
       setWeatherMsg("Weather is okay for traveling!");
     }
   };
-  console.log("res", flag);
 
-  // buttonHankd;
   const handleChange = (e) => {
     e.target.value.length > 0 ? setBtnFlag(false) : setBtnFlag(true)
     setCity(e.target.value);
@@ -68,7 +64,7 @@ function App() {
           Check Weather
         </button>
       </div>
-      {flag && <WeatherBox props={weatherData} />}
+      {weatherContainerflag && <WeatherBox props={weatherData} />}
       <p style={{ fontSize: "20px" }}>{weatherMsg}</p>
     </div>
   );
